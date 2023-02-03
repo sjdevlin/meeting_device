@@ -3,7 +3,8 @@
 
     #include "parameters.h"
 
-    #include <odas/odas.h>
+    #include <odas.h>
+
     #include <stdlib.h>
 
     typedef struct configs {

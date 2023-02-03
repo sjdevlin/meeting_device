@@ -5,10 +5,8 @@
 #include <mutex>
 
 #include "audio.h"
-#include "meeting.h"
-#include "meetpie.h"
 #include "ble.h"
-#include "../include/ggk.h"
+#include "ggk.h"
 
 // These macro definitions are for main loop logic
 #define STOPPED 0x00
@@ -83,12 +81,12 @@ int main(int argc, char *argv[])
 
     // start up the bluetooth server
 
-        if (!ble_obj.start())  // fatal error if bluetooth is unable to start
+/*        if (!ble_obj.start())  // fatal error if bluetooth is unable to start
         {
             printf("error starting bluetooth");
             exit(0);
         }
-    
+  */  
 
     // only for development
     if (auto_mode == 0x01)
@@ -109,7 +107,7 @@ int main(int argc, char *argv[])
         case RUNNING:
 
             audio_obj.get_data();                       // Get Audio source data
-            ble_obj.update(audio_obj);
+//            ble_obj.update(audio_obj);
 
             usleep(POLLINGFREQ); // This is the crucial delay that determines frequnecy of polling
 
@@ -128,7 +126,7 @@ int main(int argc, char *argv[])
 
     free((void *)file_config);
 
-    ble_obj.stop();  // Stop the ggk server
+  //  ble_obj.stop();  // Stop the ggk server
 
     exit(0);
 }

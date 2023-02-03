@@ -9,7 +9,7 @@
 #include <fstream>
 
 #include "audio.h"
-#include "../include/ggk.h"
+#include "ggk.h"
 
 class BLE
 {

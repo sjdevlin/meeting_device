@@ -2,7 +2,7 @@
 #define audio_h
 
 extern "C" {
-#include "../../include/odas/odas.h"
+#include <odas.h>
 
 #include "parameters.h"
 #include "configs.h"

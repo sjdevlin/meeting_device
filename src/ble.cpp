@@ -101,7 +101,7 @@ void BLE::update(AUDIO odas_obj)
 				if (odas_obj.track_id[i] != 0)
 				{				
 				if (server_data_text_String != "") server_data_text_String += ",";
-				server_data_text_String += std::to_string(atan2(odas_obj.y_array[iChannel], odas_obj.x_array[iChannel]));
+				server_data_text_String += std::to_string(atan2(odas_obj.y_array[i], odas_obj.x_array[i]));
 				}
 			}
 

@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/pi/odas/include/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc -I/home/pi/odas/include -I/home/pi/odas/include/odas -I./",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-arm"
+        }
+    ],
+    "version": 4
+}

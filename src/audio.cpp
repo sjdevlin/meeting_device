@@ -36,7 +36,7 @@ void AUDIO::stop()
         printf("| + Stopping Threads.................  \n ");
 
     threads_multiple_stop(aobjs);
-//    threads_multiple_join(aobjs);
+    threads_multiple_join(aobjs);
 
     if (debug_mode == 0x01)
         printf("[Done] |\n");

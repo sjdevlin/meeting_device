@@ -468,21 +468,18 @@
             // | Module                                           |
             // +--------------------------------------------------+  
 
-printf("now joining amod\n");
                 thread_join(aobjs->amod_classify_object->thread);
 
             // +--------------------------------------------------+
             // | Sink                                             |
             // +--------------------------------------------------+  
 
-printf("now joining asnk\n");
                 thread_join(aobjs->asnk_categories_object->thread);
 
             // +--------------------------------------------------+
             // | Connector                                        |
             // +--------------------------------------------------+  
 
-printf("now joining acon\n");
                 thread_join(aobjs->acon_categories_object->thread);
 
     }

@@ -99,9 +99,10 @@ void BLE::update(AUDIO odas_obj)
 			for (int i = 0; i < NUMCHANNELS; i++)
 			{
 				if (odas_obj.track_id[i] != 0)
-				{				
+				{
+				int angle_in_deg = 180 - (atan2(odas_obj.y_array[i], odas_obj.x_array[i]) * 57.3);
 				if (server_data_text_String != "") server_data_text_String += ",";
-				server_data_text_String += std::to_string(atan2(odas_obj.y_array[i], odas_obj.x_array[i]));
+				server_data_text_String += std::to_string(angle_in_deg);
 				}
 			}
 

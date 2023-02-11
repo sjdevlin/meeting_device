@@ -7,11 +7,11 @@ C_DEFINES =
 
 C_INCLUDES = -I/home/pi/odas/include/odas
 
-C_FLAGS = -g
+C_FLAGS = -O3 -DNDEBUG
 
 CXX_DEFINES = 
 
 CXX_INCLUDES = -I/home/pi/odas/include/odas
 
-CXX_FLAGS =  -std=c++11 -pthread -I/home/pi/odas/include/odas/ -g
+CXX_FLAGS =  -std=c++11 -pthread -I/home/pi/odas/include/odas/ -O3 -DNDEBUG
 

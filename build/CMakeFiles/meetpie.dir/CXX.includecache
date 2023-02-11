@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/meeting_device/src/audio.cpp
-audio.h
-/home/pi/meeting_device/src/audio.h
-
 /home/pi/meeting_device/src/audio.h
 odas.h
 -
@@ -27,10 +23,6 @@ signal.h
 -
 string
 -
-
-/home/pi/meeting_device/src/ble.cpp
-ble.h
-/home/pi/meeting_device/src/ble.h
 
 /home/pi/meeting_device/src/ble.h
 signal.h

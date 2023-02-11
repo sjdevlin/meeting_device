@@ -18,7 +18,7 @@ include_directories (${GLIB_INCLUDE_DIRS})
 link_directories (${GLIB_LIBRARY_DIRS})
 include_directories("/home/pi/odas/include/odas")
 
-set(CMAKE_BUILD_TYPE "Debug") 
+set(CMAKE_BUILD_TYPE "Release") 
 #remember to change to release !
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -I/home/pi/odas/include/odas/")
 set(EXECUTABLE_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/bin")

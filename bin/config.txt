@@ -8,7 +8,7 @@ raw:
 {
 
     fS = 16000;
-    hopSize = 128;
+    hopSize = 256;
     nBits = 16;
     nChannels = 6; 
 
@@ -189,7 +189,7 @@ sst:
     theta_new = 0.9;
     N_prob = 5;
     theta_prob = 0.8;
-    N_inactive = ( 250, 250, 250);
+    N_inactive = ( 100, 100, 100);
     theta_inactive = 0.9;
 
     # Parameters used by the Kalman filter only
@@ -292,8 +292,9 @@ sss:
         nBits = 16;        
 
         interface: {
-            type = "undefined";
-            path = "blackhole";
+            type = "blackhole";
+            ip = "<IP>";
+            port = 10000;
         };        
 
     };
@@ -306,8 +307,9 @@ sss:
         gain = 10.0;
 
         interface: {
-            type = "undefined";
-            path = "blackhole";
+            type = "blackhole";
+            ip = "<IP>";
+            port = 10000; 
         };        
 
     };
@@ -319,18 +321,18 @@ classify:
     
     frameSize = 2048;// changed from 4096
     winSize = 3;
-    tauMin = 90;
+    tauMin = 75;
     tauMax = 400;
-    varTauMin = 0.01;    
+    varTauMin = 0.00;    
     varTauMax = 7.00;
-    activityVarMin = 0.08;
-    activityVarMax = 1.00;
+    activityVarMin = 0.04;
+    activityVarMax = 1.0;
     harmonicMin = 0.4;
-    harmonicMax = 0.8;
-    samplesMin = 10;
+    harmonicMax = 0.9;
+    samplesMin = 30;
     samplesMax = 150;
     activityMin = 0.1;
-    acorrMin = 0.02;
+    acorrMin = 0.05;
     classificationPeriod = 200;  
 
     category: {

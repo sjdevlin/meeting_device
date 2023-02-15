@@ -18,9 +18,8 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-static volatile uint32_t piPeriphBase = 0x20000000;
-
-static volatile int pi_is_2711 = 0;
+#define PI_HIGH 1
+#define PI_LOW 0
 
 #define SYST_BASE  (piPeriphBase + 0x003000)
 #define GPIO_BASE  (piPeriphBase + 0x200000)
@@ -56,9 +55,9 @@ static volatile int pi_is_2711 = 0;
 #define SYST_CLO 1
 #define SYST_CHI 2
 
-static volatile uint32_t  *gpioReg = MAP_FAILED;
-static volatile uint32_t  *systReg = MAP_FAILED;
-static volatile uint32_t  *bscsReg = MAP_FAILED;
+//static volatile void  *gpioReg = MAP_FAILED;
+//static void  *systReg = MAP_FAILED;
+//static void  *bscsReg = MAP_FAILED;
 
 #define PI_BANK (gpio>>5)
 #define PI_BIT  (1<<(gpio&0x1F))
@@ -79,6 +78,7 @@ static volatile uint32_t  *bscsReg = MAP_FAILED;
 #define PI_PUD_UP   2
 
 void gpioSetMode(unsigned, unsigned);
+unsigned gpioHardwareRevision(void);
 void gpioSetPullUpDown(unsigned, unsigned);
 int gpioRead(unsigned gpio);
 void gpioWrite(unsigned gpio, unsigned level);

@@ -64,9 +64,6 @@ int main(int argc, char *argv[])
         case 'd':
             debug_mode = 0x01;
             break;
-        case 'a':
-            auto_mode = 0x01;
-            break;
         }
     }
 
@@ -92,8 +89,10 @@ int main(int argc, char *argv[])
         {
 
         case STOPPED:
-            device_obj.blink_led(POWERLED);
-
+            device_obj.darken_led(POWERLED);
+	    usleep (50000);
+            device_obj.light_led(POWERLED);
+      	    usleep (50000);
             if (device_obj.button_pressed()) 
             {
                 status = START;
@@ -104,7 +103,10 @@ int main(int argc, char *argv[])
 
         case START:
 
-	    device_obj.blink_led(RUNLED);
+	    device_obj.light_led(RUNLED);
+	    usleep (500000);
+            device_obj.darken_led(RUNLED);
+
             audio_obj.start(file_config);
             device_obj.light_led(RUNLED);
             status = RUNNING;
@@ -117,9 +119,11 @@ int main(int argc, char *argv[])
 
             usleep(POLLINGFREQ); // This is the crucial delay that determines frequnecy of polling
 
-            if (device.button_pressed()) {
-			    device_obj.darken_led(RUNLED);
-                            device_obj.blink_led(POWERLED);
+            if (device_obj.button_pressed()) {
+			device_obj.darken_led(RUNLED);
+            		device_obj.light_led(POWERLED);
+	    		usleep (50000);
+            		device_obj.darken_led(POWERLED);
                             status = STOP;
 
             }

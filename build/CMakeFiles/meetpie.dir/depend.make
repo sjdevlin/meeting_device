@@ -156,6 +156,9 @@ CMakeFiles/meetpie.dir/src/configs.o: /home/pi/odas/include/odas/utils/pcm.h
 CMakeFiles/meetpie.dir/src/configs.o: /home/pi/odas/include/odas/utils/random.h
 CMakeFiles/meetpie.dir/src/configs.o: /home/pi/odas/include/odas/utils/transcendental.h
 
+CMakeFiles/meetpie.dir/src/mini_gpio.o: ../src/mini_gpio.c
+CMakeFiles/meetpie.dir/src/mini_gpio.o: ../src/mini_gpio.h
+
 CMakeFiles/meetpie.dir/src/objects.o: ../src/configs.h
 CMakeFiles/meetpie.dir/src/objects.o: ../src/objects.c
 CMakeFiles/meetpie.dir/src/objects.o: ../src/objects.h
@@ -793,11 +796,17 @@ CMakeFiles/meetpie.dir/src/ble.o: /home/pi/odas/include/odas/utils/pcm.h
 CMakeFiles/meetpie.dir/src/ble.o: /home/pi/odas/include/odas/utils/random.h
 CMakeFiles/meetpie.dir/src/ble.o: /home/pi/odas/include/odas/utils/transcendental.h
 
+CMakeFiles/meetpie.dir/src/device.o: ../src/device.cpp
+CMakeFiles/meetpie.dir/src/device.o: ../src/device.h
+CMakeFiles/meetpie.dir/src/device.o: ../src/mini_gpio.h
+
 CMakeFiles/meetpie.dir/src/main.o: ../src/audio.h
 CMakeFiles/meetpie.dir/src/main.o: ../src/ble.h
 CMakeFiles/meetpie.dir/src/main.o: ../src/configs.h
+CMakeFiles/meetpie.dir/src/main.o: ../src/device.h
 CMakeFiles/meetpie.dir/src/main.o: ../src/ggk.h
 CMakeFiles/meetpie.dir/src/main.o: ../src/main.cpp
+CMakeFiles/meetpie.dir/src/main.o: ../src/mini_gpio.h
 CMakeFiles/meetpie.dir/src/main.o: ../src/objects.h
 CMakeFiles/meetpie.dir/src/main.o: ../src/parameters.h
 CMakeFiles/meetpie.dir/src/main.o: ../src/profiler.h

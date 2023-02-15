@@ -11,6 +11,61 @@
 
 #include "mini_gpio.h"
 
+static volatile uint32_t piPeriphBase = 0x20000000;
+
+static volatile int pi_is_2711 = 0;
+
+static volatile uint32_t  *gpioReg = MAP_FAILED;
+static volatile uint32_t  *systReg = MAP_FAILED;
+static volatile uint32_t  *bscsReg = MAP_FAILED;
+
+unsigned gpioHardwareRevision(void)
+{
+   static unsigned rev = 0;
+
+   FILE *filp;
+   char buf[512];
+   char term;
+   int chars=4; /* number of chars in revision string */
+
+   filp = fopen ("/proc/cpuinfo", "r");
+
+   if (filp != NULL)
+   {
+      while (fgets(buf, sizeof(buf), filp) != NULL)
+      {
+         if (!strncasecmp("revision", buf, 8))
+         {
+            if (sscanf(buf+strlen(buf)-(chars+1),
+               "%x%c", &rev, &term) == 2)
+            {
+               if (term != '\n') rev = 0;
+               else rev &= 0xFFFFFF; /* mask out warranty bit */
+            }
+         }
+      }
+
+      fclose(filp);
+   }
+
+   if (filp = fopen("/proc/device-tree/soc/ranges" , "rb"))
+   {
+      if (fread(buf, 1, sizeof(buf), filp) >= 8)
+      {
+         piPeriphBase = buf[4]<<24 | buf[5]<<16 | buf[6]<<8 | buf[7];
+         if (!piPeriphBase)
+            piPeriphBase = buf[8]<<24 | buf[9]<<16 | buf[10]<<8 | buf[11];
+
+         if (piPeriphBase == 0xFE00000) pi_is_2711 = 1;
+      }
+      fclose(filp);
+   }
+
+   return rev;
+}
+
+
+
 void gpioSetMode(unsigned gpio, unsigned mode)
 {
    int reg, shift;

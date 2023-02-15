@@ -8,27 +8,20 @@ DEVICE::DEVICE(unsigned start_stop_button)
     gpioSetPullUpDown(start_stop_button, PI_PUD_UP);
 }
 
-bool MEETPIE::button_pressed(unsigned start_stop_button)
+bool DEVICE::button_pressed()
 {
     bool is_button_pressed;
     is_button_pressed = gpioRead(start_stop_button); // ! operator because its a pullup
     return is_button_pressed;
 }
 
-void MEETPIE::light_led(unsigned led_number)
+void  DEVICE::light_led(unsigned led_number)
 {
     gpioWrite(led_number, PI_HIGH);
 }
 
-void MEETPIE::darken_led(unsigned led_number)
+void  DEVICE::darken_led(unsigned led_number)
 {
-    gpioWrite(led_number, PI_LOW);
-}
-
-void MEETPIE::blink_led(unsigned led_number)
-{
-    gpioWrite(led_number, PI_HIGH);
-    delay(100);
     gpioWrite(led_number, PI_LOW);
 }
 

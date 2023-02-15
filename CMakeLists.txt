@@ -29,10 +29,12 @@ add_executable(meetpie
     src/main.cpp
     src/audio.cpp
     src/ble.cpp
+    src/device.cpp
     src/parameters.c
     src/configs.c
     src/objects.c
     src/threads.c
+    src/mini_gpio.c
 )
 
 target_link_libraries(meetpie

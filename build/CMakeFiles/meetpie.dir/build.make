@@ -115,9 +115,22 @@ CMakeFiles/meetpie.dir/src/ble.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meetpie.dir/src/ble.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/meeting_device/src/ble.cpp -o CMakeFiles/meetpie.dir/src/ble.s
 
+CMakeFiles/meetpie.dir/src/device.o: CMakeFiles/meetpie.dir/flags.make
+CMakeFiles/meetpie.dir/src/device.o: ../src/device.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/meeting_device/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/meetpie.dir/src/device.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/meetpie.dir/src/device.o -c /home/pi/meeting_device/src/device.cpp
+
+CMakeFiles/meetpie.dir/src/device.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/meetpie.dir/src/device.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/meeting_device/src/device.cpp > CMakeFiles/meetpie.dir/src/device.i
+
+CMakeFiles/meetpie.dir/src/device.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/meetpie.dir/src/device.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/meeting_device/src/device.cpp -o CMakeFiles/meetpie.dir/src/device.s
+
 CMakeFiles/meetpie.dir/src/parameters.o: CMakeFiles/meetpie.dir/flags.make
 CMakeFiles/meetpie.dir/src/parameters.o: ../src/parameters.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/meeting_device/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/meetpie.dir/src/parameters.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/meeting_device/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/meetpie.dir/src/parameters.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/meetpie.dir/src/parameters.o -c /home/pi/meeting_device/src/parameters.c
 
 CMakeFiles/meetpie.dir/src/parameters.i: cmake_force
@@ -130,7 +143,7 @@ CMakeFiles/meetpie.dir/src/parameters.s: cmake_force
 
 CMakeFiles/meetpie.dir/src/configs.o: CMakeFiles/meetpie.dir/flags.make
 CMakeFiles/meetpie.dir/src/configs.o: ../src/configs.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/meeting_device/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/meetpie.dir/src/configs.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/meeting_device/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/meetpie.dir/src/configs.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/meetpie.dir/src/configs.o -c /home/pi/meeting_device/src/configs.c
 
 CMakeFiles/meetpie.dir/src/configs.i: cmake_force
@@ -143,7 +156,7 @@ CMakeFiles/meetpie.dir/src/configs.s: cmake_force
 
 CMakeFiles/meetpie.dir/src/objects.o: CMakeFiles/meetpie.dir/flags.make
 CMakeFiles/meetpie.dir/src/objects.o: ../src/objects.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/meeting_device/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/meetpie.dir/src/objects.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/meeting_device/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/meetpie.dir/src/objects.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/meetpie.dir/src/objects.o -c /home/pi/meeting_device/src/objects.c
 
 CMakeFiles/meetpie.dir/src/objects.i: cmake_force
@@ -156,7 +169,7 @@ CMakeFiles/meetpie.dir/src/objects.s: cmake_force
 
 CMakeFiles/meetpie.dir/src/threads.o: CMakeFiles/meetpie.dir/flags.make
 CMakeFiles/meetpie.dir/src/threads.o: ../src/threads.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/meeting_device/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/meetpie.dir/src/threads.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/meeting_device/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/meetpie.dir/src/threads.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/meetpie.dir/src/threads.o -c /home/pi/meeting_device/src/threads.c
 
 CMakeFiles/meetpie.dir/src/threads.i: cmake_force
@@ -167,15 +180,30 @@ CMakeFiles/meetpie.dir/src/threads.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/meetpie.dir/src/threads.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/meeting_device/src/threads.c -o CMakeFiles/meetpie.dir/src/threads.s
 
+CMakeFiles/meetpie.dir/src/mini_gpio.o: CMakeFiles/meetpie.dir/flags.make
+CMakeFiles/meetpie.dir/src/mini_gpio.o: ../src/mini_gpio.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/meeting_device/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/meetpie.dir/src/mini_gpio.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/meetpie.dir/src/mini_gpio.o -c /home/pi/meeting_device/src/mini_gpio.c
+
+CMakeFiles/meetpie.dir/src/mini_gpio.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/meetpie.dir/src/mini_gpio.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/meeting_device/src/mini_gpio.c > CMakeFiles/meetpie.dir/src/mini_gpio.i
+
+CMakeFiles/meetpie.dir/src/mini_gpio.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/meetpie.dir/src/mini_gpio.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/meeting_device/src/mini_gpio.c -o CMakeFiles/meetpie.dir/src/mini_gpio.s
+
 # Object files for target meetpie
 meetpie_OBJECTS = \
 "CMakeFiles/meetpie.dir/src/main.o" \
 "CMakeFiles/meetpie.dir/src/audio.o" \
 "CMakeFiles/meetpie.dir/src/ble.o" \
+"CMakeFiles/meetpie.dir/src/device.o" \
 "CMakeFiles/meetpie.dir/src/parameters.o" \
 "CMakeFiles/meetpie.dir/src/configs.o" \
 "CMakeFiles/meetpie.dir/src/objects.o" \
-"CMakeFiles/meetpie.dir/src/threads.o"
+"CMakeFiles/meetpie.dir/src/threads.o" \
+"CMakeFiles/meetpie.dir/src/mini_gpio.o"
 
 # External object files for target meetpie
 meetpie_EXTERNAL_OBJECTS =
@@ -183,15 +211,17 @@ meetpie_EXTERNAL_OBJECTS =
 ../bin/meetpie: CMakeFiles/meetpie.dir/src/main.o
 ../bin/meetpie: CMakeFiles/meetpie.dir/src/audio.o
 ../bin/meetpie: CMakeFiles/meetpie.dir/src/ble.o
+../bin/meetpie: CMakeFiles/meetpie.dir/src/device.o
 ../bin/meetpie: CMakeFiles/meetpie.dir/src/parameters.o
 ../bin/meetpie: CMakeFiles/meetpie.dir/src/configs.o
 ../bin/meetpie: CMakeFiles/meetpie.dir/src/objects.o
 ../bin/meetpie: CMakeFiles/meetpie.dir/src/threads.o
+../bin/meetpie: CMakeFiles/meetpie.dir/src/mini_gpio.o
 ../bin/meetpie: CMakeFiles/meetpie.dir/build.make
 ../bin/meetpie: /home/pi/odas/lib/libodas.so
 ../bin/meetpie: /home/pi/gobbledegook/src/libggk.a
 ../bin/meetpie: CMakeFiles/meetpie.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/meeting_device/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable ../bin/meetpie"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/meeting_device/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable ../bin/meetpie"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/meetpie.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

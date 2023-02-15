@@ -7,24 +7,24 @@
 #include "audio.h"
 #include "ble.h"
 #include "ggk.h"
+#include "device.h"
 
 // These macro definitions are for main loop logic
 #define STOPPED 0x00
 #define STOP 0x01
 #define START 0x02
 #define RUNNING 0x03
-#define SETMODE 0x04
 
-#define SHORTPRESS 1
-#define LONGPRESS 6
+#define STARTSTOPBUTTON 17
+#define RUNLED 18
+#define POWERLED 19
 
-#define NUMLEDS 35          // eventually this will go into a parameter file
+
 #define POLLINGFREQ 500000  // also this into a parameter file
 #define BUTTONFREQ 250000   // also this into a parameter file
 #define TWO_SECONDS 2000000 // also this into a parameter file
 
 char debug_mode = 0x00;       // global variable for debugging flag
-char auto_mode = 0x01;        // global variable for auto run without button - used in development only
 char shutdown_request = 0x00; // Used in signal handler for orderly shut down on Ctrl C
 
 void signal_handler(int signum)
@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
     // Create objects
     AUDIO audio_obj;
     BLE ble_obj;
+    DEVICE device_obj(STARTSTOPBUTTON);
 
     // Command-line parser  // need to add error condition
     int c;
@@ -76,8 +77,6 @@ int main(int argc, char *argv[])
     signal(SIGTERM, signal_handler);
 
     char status = STOPPED; // make sure main loop starts in right mode
-    int time_button_pressed = 0;
-    unsigned int blink_counter = 0;
 
     // start up the bluetooth server
 
@@ -87,19 +86,27 @@ int main(int argc, char *argv[])
             exit(0);
         }
 
-    // only for development
-    if (auto_mode == 0x01)
-        status = START;
-
     while (shutdown_request != 0x01)
     {
         switch (status)
         {
 
+        case STOPPED:
+            device_obj.blink_led(POWERLED);
+
+            if (device_obj.button_pressed()) 
+            {
+                status = START;
+                device_obj.darken_led(POWERLED);
+            }
+            break;
+
+
         case START:
 
+	    device_obj.blink_led(RUNLED);
             audio_obj.start(file_config);
-
+            device_obj.light_led(RUNLED);
             status = RUNNING;
             break;
 
@@ -110,8 +117,22 @@ int main(int argc, char *argv[])
 
             usleep(POLLINGFREQ); // This is the crucial delay that determines frequnecy of polling
 
+            if (device.button_pressed()) {
+			    device_obj.darken_led(RUNLED);
+                            device_obj.blink_led(POWERLED);
+                            status = STOP;
+
+            }
+
             break;
 
+        case STOP:
+
+            audio_obj.stop();
+            device_obj.light_led(POWERLED);
+            status = STOPPED;
+
+            break;
 
         default:
             break;

@@ -218,21 +218,6 @@ src/main.s:
 .PHONY : src/main.s
 
 # target to build an object file
-src/mini_gpio.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/meetpie.dir/build.make CMakeFiles/meetpie.dir/src/mini_gpio.o
-.PHONY : src/mini_gpio.o
-
-# target to preprocess a source file
-src/mini_gpio.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/meetpie.dir/build.make CMakeFiles/meetpie.dir/src/mini_gpio.i
-.PHONY : src/mini_gpio.i
-
-# target to generate assembly for a file
-src/mini_gpio.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/meetpie.dir/build.make CMakeFiles/meetpie.dir/src/mini_gpio.s
-.PHONY : src/mini_gpio.s
-
-# target to build an object file
 src/objects.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/meetpie.dir/build.make CMakeFiles/meetpie.dir/src/objects.o
 .PHONY : src/objects.o
@@ -301,9 +286,6 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/mini_gpio.o"
-	@echo "... src/mini_gpio.i"
-	@echo "... src/mini_gpio.s"
 	@echo "... src/objects.o"
 	@echo "... src/objects.i"
 	@echo "... src/objects.s"

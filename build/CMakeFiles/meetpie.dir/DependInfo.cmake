@@ -6,7 +6,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/pi/meeting_device/src/configs.c" "/home/pi/meeting_device/build/CMakeFiles/meetpie.dir/src/configs.o"
-  "/home/pi/meeting_device/src/mini_gpio.c" "/home/pi/meeting_device/build/CMakeFiles/meetpie.dir/src/mini_gpio.o"
   "/home/pi/meeting_device/src/objects.c" "/home/pi/meeting_device/build/CMakeFiles/meetpie.dir/src/objects.o"
   "/home/pi/meeting_device/src/parameters.c" "/home/pi/meeting_device/build/CMakeFiles/meetpie.dir/src/parameters.o"
   "/home/pi/meeting_device/src/threads.c" "/home/pi/meeting_device/build/CMakeFiles/meetpie.dir/src/threads.o"

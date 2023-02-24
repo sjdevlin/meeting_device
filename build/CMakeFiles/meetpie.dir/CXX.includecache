@@ -50,15 +50,13 @@ odas.h
 stdlib.h
 -
 
-/home/pi/meeting_device/src/device.cpp
-device.h
-/home/pi/meeting_device/src/device.h
-
 /home/pi/meeting_device/src/device.h
 unistd.h
 -
-mini_gpio.h
-/home/pi/meeting_device/src/mini_gpio.h
+cstdio
+-
+pigpio.h
+-
 
 /home/pi/meeting_device/src/ggk.h
 
@@ -81,24 +79,6 @@ ggk.h
 /home/pi/meeting_device/src/ggk.h
 device.h
 /home/pi/meeting_device/src/device.h
-
-/home/pi/meeting_device/src/mini_gpio.h
-stdio.h
--
-unistd.h
--
-stdint.h
--
-string.h
--
-fcntl.h
--
-sys/mman.h
--
-sys/stat.h
--
-sys/types.h
--
 
 /home/pi/meeting_device/src/objects.h
 configs.h

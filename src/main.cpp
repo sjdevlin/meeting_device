@@ -15,10 +15,9 @@
 #define START 0x02
 #define RUNNING 0x03
 
-#define STARTSTOPBUTTON 17
-#define RUNLED 18
-#define POWERLED 19
-
+#define STARTSTOPBUTTON 18
+#define RUNLED 17
+#define POWERLED 22
 
 #define POLLINGFREQ 500000  // also this into a parameter file
 #define BUTTONFREQ 250000   // also this into a parameter file
@@ -44,10 +43,6 @@ void signal_handler(int signum)
 
 int main(int argc, char *argv[])
 {
-    // Create objects
-    AUDIO audio_obj;
-    BLE ble_obj;
-    DEVICE device_obj(STARTSTOPBUTTON);
 
     // Command-line parser  // need to add error condition
     int c;
@@ -67,6 +62,15 @@ int main(int argc, char *argv[])
         }
     }
 
+    // Create objects
+
+    AUDIO audio_obj;
+    BLE ble_obj;
+    if (debug_mode == 0x01) printf("creating device obj\n");
+    DEVICE device_obj(STARTSTOPBUTTON, POWERLED, RUNLED);
+    device_obj.darken_led(POWERLED);
+    device_obj.darken_led(RUNLED);
+
     // JJ remember to add error codes that bubble up
 
     // Setup our signal handlers
@@ -76,12 +80,24 @@ int main(int argc, char *argv[])
     char status = STOPPED; // make sure main loop starts in right mode
 
     // start up the bluetooth server
+       
+	int attempt = 0;
+	int ble_status = 0;
 
-        if (!ble_obj.start())  // fatal error if bluetooth is unable to start
-        {
-            printf("error starting bluetooth");
-            exit(0);
-        }
+	while (attempt++ < 4 && !ble_status)
+	    {
+            device_obj.light_led(RUNLED);
+            device_obj.darken_led(POWERLED);
+	    sleep(1);
+            device_obj.darken_led(RUNLED);
+            device_obj.light_led(POWERLED);
+	    sleep(1);
+            ble_status = ble_obj.start();
+		printf("error starting bluetooth retry : %d\n", attempt);
+	    }
+	    
+        if (!ble_status) exit(0);    
+
 
     while (shutdown_request != 0x01)
     {
@@ -89,12 +105,14 @@ int main(int argc, char *argv[])
         {
 
         case STOPPED:
-            device_obj.darken_led(POWERLED);
-	    usleep (50000);
             device_obj.light_led(POWERLED);
-      	    usleep (50000);
-            if (device_obj.button_pressed()) 
+            device_obj.darken_led(RUNLED);
+      	    usleep (100000);
+	    if (debug_mode == 0x01) printf("in loop \n");
+
+            if (device_obj.button_pressed(STARTSTOPBUTTON)) 
             {
+	    if (debug_mode == 0x01) printf("button pressed \n");
                 status = START;
                 device_obj.darken_led(POWERLED);
             }
@@ -102,10 +120,6 @@ int main(int argc, char *argv[])
 
 
         case START:
-
-	    device_obj.light_led(RUNLED);
-	    usleep (500000);
-            device_obj.darken_led(RUNLED);
 
             audio_obj.start(file_config);
             device_obj.light_led(RUNLED);
@@ -119,7 +133,7 @@ int main(int argc, char *argv[])
 
             usleep(POLLINGFREQ); // This is the crucial delay that determines frequnecy of polling
 
-            if (device_obj.button_pressed()) {
+            if (device_obj.button_pressed(STARTSTOPBUTTON)) {
 			device_obj.darken_led(RUNLED);
             		device_obj.light_led(POWERLED);
 	    		usleep (50000);

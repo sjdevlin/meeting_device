@@ -19,6 +19,7 @@ link_directories (${GLIB_LIBRARY_DIRS})
 include_directories("/home/pi/odas/include/odas")
 
 set(CMAKE_BUILD_TYPE "Release") 
+#set(CMAKE_BUILD_TYPE "Debug") 
 #remember to change to release !
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -I/home/pi/odas/include/odas/")
 set(EXECUTABLE_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/bin")
@@ -34,7 +35,7 @@ add_executable(meetpie
     src/configs.c
     src/objects.c
     src/threads.c
-    src/mini_gpio.c
+#    src/mini_gpio.c
 )
 
 target_link_libraries(meetpie
@@ -51,6 +52,8 @@ target_link_libraries(meetpie
 	gobject-2.0
     libc.so.6
     libm.so.6
+    pigpio
+    rt
 )
 
 

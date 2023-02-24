@@ -6,7 +6,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/meetpie.dir/src/configs.o"
   "CMakeFiles/meetpie.dir/src/device.o"
   "CMakeFiles/meetpie.dir/src/main.o"
-  "CMakeFiles/meetpie.dir/src/mini_gpio.o"
   "CMakeFiles/meetpie.dir/src/objects.o"
   "CMakeFiles/meetpie.dir/src/parameters.o"
   "CMakeFiles/meetpie.dir/src/threads.o"

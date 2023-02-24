@@ -2,17 +2,35 @@
 
 //  Main Class Methods for the Meet Pie Device
 
-DEVICE::DEVICE(unsigned start_stop_button) 
+DEVICE::DEVICE(unsigned start_stop_button, unsigned power_led, unsigned run_led) 
 {
-    gpioInitialise() < 0;
-    gpioSetPullUpDown(start_stop_button, PI_PUD_UP);
+    int status = gpioInitialise();
+    if (status < 0 && debug_mode == 0x01) printf ("Error initialising %d\n", status);
+
+    status = gpioSetPullUpDown(start_stop_button, PI_PUD_UP);
+    status = gpioSetMode(start_stop_button, PI_INPUT);
+    if (debug_mode == 0x01) printf ("Button %d", status);
+    status = gpioSetPullUpDown(power_led, PI_PUD_DOWN);
+    status = gpioSetMode(power_led, PI_OUTPUT);
+    if (debug_mode == 0x01) printf ("Power LED %d\n", status);
+    status = gpioSetPullUpDown(run_led, PI_PUD_DOWN);
+    status = gpioSetMode(run_led, PI_OUTPUT);
+    if (debug_mode == 0x01) printf ("Run LED %d\n", status);
+
 }
 
-bool DEVICE::button_pressed()
+bool DEVICE::button_pressed(unsigned button)
 {
-    bool is_button_pressed;
-    is_button_pressed = gpioRead(start_stop_button); // ! operator because its a pullup
-    return is_button_pressed;
+    int button_status;
+    button_status = gpioRead(button); // ! operator because its a pullup
+    if (button_status == 1) 
+	{
+	return false;
+	}
+	else
+	{
+	return true;
+	}
 }
 
 void  DEVICE::light_led(unsigned led_number)

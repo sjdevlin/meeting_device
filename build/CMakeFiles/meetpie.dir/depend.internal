@@ -156,9 +156,6 @@ CMakeFiles/meetpie.dir/src/configs.o
  /home/pi/odas/include/odas/utils/pcm.h
  /home/pi/odas/include/odas/utils/random.h
  /home/pi/odas/include/odas/utils/transcendental.h
-CMakeFiles/meetpie.dir/src/mini_gpio.o
- /home/pi/meeting_device/src/mini_gpio.c
- /home/pi/meeting_device/src/mini_gpio.h
 CMakeFiles/meetpie.dir/src/objects.o
  /home/pi/meeting_device/src/configs.h
  /home/pi/meeting_device/src/objects.c
@@ -799,7 +796,6 @@ CMakeFiles/meetpie.dir/src/ble.o
 CMakeFiles/meetpie.dir/src/device.o
  /home/pi/meeting_device/src/device.cpp
  /home/pi/meeting_device/src/device.h
- /home/pi/meeting_device/src/mini_gpio.h
 CMakeFiles/meetpie.dir/src/main.o
  /home/pi/meeting_device/src/audio.h
  /home/pi/meeting_device/src/ble.h
@@ -807,7 +803,6 @@ CMakeFiles/meetpie.dir/src/main.o
  /home/pi/meeting_device/src/device.h
  /home/pi/meeting_device/src/ggk.h
  /home/pi/meeting_device/src/main.cpp
- /home/pi/meeting_device/src/mini_gpio.h
  /home/pi/meeting_device/src/objects.h
  /home/pi/meeting_device/src/parameters.h
  /home/pi/meeting_device/src/profiler.h

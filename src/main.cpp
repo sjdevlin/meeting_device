@@ -64,12 +64,15 @@ int main(int argc, char *argv[])
 
     // Create objects
 
+    if (debug_mode == 0x01) printf("creating odas object obj\n");
     AUDIO audio_obj;
+    if (debug_mode == 0x01) printf("creating ble object obj\n");
     BLE ble_obj;
-    if (debug_mode == 0x01) printf("creating device obj\n");
+    if (debug_mode == 0x01) printf("creating device object\n");
     DEVICE device_obj(STARTSTOPBUTTON, POWERLED, RUNLED);
     device_obj.darken_led(POWERLED);
     device_obj.darken_led(RUNLED);
+    fflush(stdout);
 
     // JJ remember to add error codes that bubble up
 
@@ -84,20 +87,28 @@ int main(int argc, char *argv[])
 	int attempt = 0;
 	int ble_status = 0;
 
-	while (attempt++ < 4 && !ble_status)
-	    {
-            device_obj.light_led(RUNLED);
-            device_obj.darken_led(POWERLED);
-	    sleep(1);
-            device_obj.darken_led(RUNLED);
-            device_obj.light_led(POWERLED);
-	    sleep(1);
-            ble_status = ble_obj.start();
-		printf("error starting bluetooth retry : %d\n", attempt);
-	    }
+	while (ble_status != 0 && attempt < 4)
+	   	{
+		ble_status = ble_obj.start();
+		printf("starting bluetooth. returned (%d) attempt number : %d\n", ble_status, attempt);
+	    	attempt++;
+		fflush(stdout);
+            	device_obj.light_led(RUNLED);
+            	device_obj.darken_led(POWERLED);
+	    	sleep(1);
+            	device_obj.darken_led(RUNLED);
+            	device_obj.light_led(POWERLED);
+	    	sleep(1);
+	    	}
 	    
-        if (!ble_status) exit(0);    
+        if (ble_status != 0){
+		if (debug_mode == 0x01) printf("BLE fucked up again");
+		if (debug_mode == 0x01) fflush(stdout);
+	 	exit(0);    
+		}
 
+    printf ("shutdown request %d", shutdown_request);
+    fflush(stdout);
 
     while (shutdown_request != 0x01)
     {
@@ -107,12 +118,12 @@ int main(int argc, char *argv[])
         case STOPPED:
             device_obj.light_led(POWERLED);
             device_obj.darken_led(RUNLED);
-      	    usleep (100000);
-	    if (debug_mode == 0x01) printf("in loop \n");
+      	    usleep (BUTTONFREQ);
 
             if (device_obj.button_pressed(STARTSTOPBUTTON)) 
             {
 	    if (debug_mode == 0x01) printf("button pressed \n");
+   	    if (debug_mode == 0x01) fflush(stdout);
                 status = START;
                 device_obj.darken_led(POWERLED);
             }

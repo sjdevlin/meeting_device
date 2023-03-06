@@ -71,11 +71,11 @@ bool BLE::start()
         // Start Bluetooth
     if (!ggkStart("gobbledegook", "Gobbledegook", "Gobbledegook", BLE::data_getter, BLE::data_setter, BLE::max_async_init_timeout_ms))
 	{
-        return 0;
+        return -1;
 	}
 	else
 	{
-	return 1;
+	return 0;
 	}
 
 }
@@ -108,7 +108,7 @@ void BLE::update(AUDIO odas_obj)
 
 			mutex_buffer.unlock();
 
-		    if (debug_mode == 0x01) printf ("Bluetooth data: %s\n",server_data_text_String.c_str());
+//		    if (debug_mode == 0x01) printf ("Bluetooth data: %s\n",server_data_text_String.c_str());
 
     		// now the output string is ready and_swe should call notify
 			ggkNofifyUpdatedCharacteristic("/com/gobbledegook/text/string");

@@ -4,12 +4,14 @@
 
 DEVICE::DEVICE(unsigned start_stop_button, unsigned power_led, unsigned run_led) 
 {
+
     int status = gpioInitialise();
+    if (debug_mode == 0x01) printf ("Starting PIGPIO\n", status);
     if (status < 0 && debug_mode == 0x01) printf ("Error initialising %d\n", status);
 
     status = gpioSetPullUpDown(start_stop_button, PI_PUD_UP);
     status = gpioSetMode(start_stop_button, PI_INPUT);
-    if (debug_mode == 0x01) printf ("Button %d", status);
+    if (debug_mode == 0x01) printf ("Button %dn\n", status);
     status = gpioSetPullUpDown(power_led, PI_PUD_DOWN);
     status = gpioSetMode(power_led, PI_OUTPUT);
     if (debug_mode == 0x01) printf ("Power LED %d\n", status);
@@ -29,6 +31,9 @@ bool DEVICE::button_pressed(unsigned button)
 	}
 	else
 	{
+	if (debug_mode == 0x01) printf("button pressed inside object");
+	if (debug_mode == 0x01) fflush(stdout);
+
 	return true;
 	}
 }

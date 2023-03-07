@@ -24,6 +24,10 @@ signal.h
 string
 -
 
+/home/pi/meeting_device/src/ble.cpp
+ble.h
+/home/pi/meeting_device/src/ble.h
+
 /home/pi/meeting_device/src/ble.h
 signal.h
 -
@@ -50,35 +54,7 @@ odas.h
 stdlib.h
 -
 
-/home/pi/meeting_device/src/device.h
-unistd.h
--
-cstdio
--
-pigpio.h
--
-
 /home/pi/meeting_device/src/ggk.h
-
-/home/pi/meeting_device/src/main.cpp
-signal.h
--
-iostream
--
-sstream
--
-fstream
--
-mutex
--
-audio.h
-/home/pi/meeting_device/src/audio.h
-ble.h
-/home/pi/meeting_device/src/ble.h
-ggk.h
-/home/pi/meeting_device/src/ggk.h
-device.h
-/home/pi/meeting_device/src/device.h
 
 /home/pi/meeting_device/src/objects.h
 configs.h

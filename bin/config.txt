@@ -322,7 +322,7 @@ classify:
     frameSize = 2048;// changed from 4096
     winSize = 3;
     tauMin = 75;
-    tauMax = 400;
+    tauMax = 350;
     varTauMin = 0.00;    
     varTauMax = 7.00;
     activityVarMin = 0.04;
@@ -330,9 +330,9 @@ classify:
     harmonicMin = 0.4;
     harmonicMax = 0.9;
     samplesMin = 20;
-    samplesMax = 150;
+    samplesMax = 170;
     activityMin = 0.5;
-    acorrMin = 0.05;
+    acorrMin = 0.01;
     classificationPeriod = 400;  
 
     category: {

@@ -146,9 +146,6 @@ int main(int argc, char *argv[])
 
             if (device_obj.button_pressed(STARTSTOPBUTTON)) {
 			device_obj.darken_led(RUNLED);
-            		device_obj.light_led(POWERLED);
-	    		usleep (50000);
-            		device_obj.darken_led(POWERLED);
                             status = STOP;
 
             }
@@ -158,8 +155,8 @@ int main(int argc, char *argv[])
         case STOP:
 
             audio_obj.stop();
-            device_obj.light_led(POWERLED);
             status = STOPPED;
+            usleep (BUTTONFREQ); // just avoiding bounce
 
             break;
 

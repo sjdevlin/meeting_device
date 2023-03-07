@@ -31,6 +31,7 @@ public:
     static const int max_async_init_timeout_ms = 5000;
 
 private:
+    unsigned int packet_id;
     // Maximum time to wait for any single async process to timeout during initialization
 };
 

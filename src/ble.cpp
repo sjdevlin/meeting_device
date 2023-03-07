@@ -12,6 +12,7 @@ std::string BLE::server_data_text_String = "";
 
 BLE::BLE()
 {
+packet_id = 0;
 }
 
 const void * BLE::data_getter(const char *p_name)
@@ -94,13 +95,18 @@ void BLE::update(AUDIO odas_obj)
 
             	mutex_buffer.lock();
 
-			server_data_text_String = "";
+			server_data_text_String = std::to_string(packet_id++);
 
 			for (int i = 0; i < NUMCHANNELS; i++)
 			{
 				if (odas_obj.track_id[i] != 0)
 				{
 				int angle_in_deg = 180 - (atan2(odas_obj.y_array[i], odas_obj.x_array[i]) * 57.3);
+
+				// following has been changed due to geometry of assumbly
+		                angle_in_deg += 225;
+				if (angle_in_deg >=360) angle_in_deg -=360;
+
 				if (server_data_text_String != "") server_data_text_String += ",";
 				server_data_text_String += std::to_string(angle_in_deg);
 				}

@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
     // start up the bluetooth server
        
 	int attempt = 0;
-	int ble_status = 0;
+	int ble_status = 99;
 
 	while (ble_status != 0 && attempt < 4)
 	   	{

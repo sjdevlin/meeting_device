@@ -81,6 +81,7 @@ int main(int argc, char *argv[])
     signal(SIGTERM, signal_handler);
 
     char status = STOPPED; // make sure main loop starts in right mode
+//    char status = START; // make sure main loop starts in right mode
 
     // start up the bluetooth server
        

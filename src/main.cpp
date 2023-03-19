@@ -19,7 +19,7 @@
 #define RUNLED 17
 #define POWERLED 22
 
-#define POLLINGFREQ 500000  // also this into a parameter file
+#define POLLINGFREQ 1000000  // also this into a parameter file
 #define BUTTONFREQ 250000   // also this into a parameter file
 #define TWO_SECONDS 2000000 // also this into a parameter file
 

@@ -171,8 +171,9 @@ sst:
 
     # Parameters used by both the Kalman and particle filter
 
+    # sd changed mu of active from 0.4 to 0.5 to reduce sensitivity - and back !
     active = (
-        { weight = 1.0; mu = 0.4; sigma2 = 0.0025 }
+        { weight = 1.0; mu = 0.4; sigma2 = 0.0025 } 
     );
 
     inactive = (
@@ -189,7 +190,7 @@ sst:
     theta_new = 0.9;
     N_prob = 5;
     theta_prob = 0.8;
-    N_inactive = ( 200, 200, 200);
+    N_inactive = ( 250, 250, 250);
     theta_inactive = 0.9;
 
     # Parameters used by the Kalman filter only
@@ -241,8 +242,8 @@ sss:
     
     # Mode is either "dds", "dgss" or "dmvdr"
 
-    mode_sep = "dds";
-    mode_pf = "ms";
+    mode_sep = "dgss";  // changed from dds
+    mode_pf = "ss";  // changed from ms
 
     gain_sep = 1.0;
     gain_pf = 10.0;
@@ -279,9 +280,9 @@ sss:
 
     ss: {
 
-        Gmin = 0.01;
+        Gmin = 0.0001;  // changed from 0.01
         Gmid = 0.9;
-        Gslope = 10.0;
+        Gslope = 20.0; // changed from 10.0
 
     };
 
@@ -319,20 +320,20 @@ sss:
 classify:
 {
     
-    frameSize = 2048;// changed from 4096
+    frameSize = 4096;// changed from 4096
     winSize = 3;
     tauMin = 75;
     tauMax = 350;
     varTauMin = 0.00;    
-    varTauMax = 7.00;
-    activityVarMin = 0.04;
-    activityVarMax = 2.5;
+    varTauMax = 4.00;
+    activityVarMin = 0.1;
+    activityVarMax = 7.0;
     harmonicMin = 0.4;
-    harmonicMax = 0.9;
+    harmonicMax = 0.95;
     samplesMin = 20;
-    samplesMax = 170;
-    activityMin = 0.5;
-    acorrMin = 0.01;
+    samplesMax = 300;
+    activityMin = 0.0;
+    acorrMin = 0.05;
     classificationPeriod = 400;  
 
     category: {
